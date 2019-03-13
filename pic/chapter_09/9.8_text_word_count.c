@@ -28,7 +28,7 @@ void readLine (char buffer[])
 int countWords (const char string[])
 {
     int i, wordCount = 0;
-    bool lookingForWord, alphabetic(const char character);
+    bool lookingForWord = true, alphabetic(const char character);
 
     for (i = 0; string[i] != '\0'; ++i)
         if (alphabetic(string[i])) {
