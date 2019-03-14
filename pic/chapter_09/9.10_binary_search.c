@@ -9,21 +9,22 @@ struct entry
     char definition[50];
 };
 
-bool compareStrings (const char s1[], const char s2[])
+int compareStrings (const char s1[], const char s2[])
 {
-    int i = 0;
-    bool areEqual;
+    int i = 0, answer;
 
     while (s1[i] == s2[i] && 
             s1[i] != '\0' && s2[i] != '\0')
         ++i;
     
     if (s1[i] == '\0' && s2[i] == '\0')
-        areEqual = true;
-    else 
-        areEqual = false;
+        answer = 0;
+    else if (s1[i] < s2[i]) 
+        answer = -1;
+    else
+        answer = 1;
     
-    return areEqual;
+    return answer;
 }
 
 // 此函数在词典中查找一个单词
@@ -31,13 +32,23 @@ bool compareStrings (const char s1[], const char s2[])
 int lookup (const struct entry dictionary[], const char search[],
             const int entries)
 {
-    int i;
-    bool equalStrings (const char s1[], const char s2[]);
+    int low = 0;
+    int high = entries -1;
+    int mid, result;
+    int compareStrings (const char s1[], const char s2[]);
 
-    for (i= 0; i < entries; ++i)
-        if (equalStrings(search, dictionary[i].word))
-            return i;
-    
+    while (low <= high) {
+        mid = (low + high) / 2;
+        result = compareStrings(dictionary[mid].word, search);
+
+        if (result == -1)
+            low = mid + 1;
+        else if (result == 1)
+            high = mid - 1;
+        else 
+            return mid;
+    }
+
     return -1;
 }
 
