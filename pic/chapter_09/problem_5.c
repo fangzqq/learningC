@@ -28,9 +28,10 @@ int findString(char source[], char target[])
     return found ? pos: -1;
 }
 
+
 int main(void)
 {
-    char source[] = "a chahatterbox";
+    char source[] = "a chahtterboxhat";
     char target[] = "hat";
     int findString(char s[], char t[]);
     int index;

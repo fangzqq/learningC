@@ -19,7 +19,7 @@ void insertString(char source[], char text[], int index)
 
 int main(void)
 {
-    char source[] = "the wrong son";
+    char source[100] = "the wrong son";
     char text[] = "per";
     int index = 10;
     void insertString(char source[], char text[], int);
