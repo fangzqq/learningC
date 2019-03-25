@@ -81,7 +81,6 @@ is considered good programming technique.
 
 Include files can be nested. That is, an include file can itself include another file, and so on.
 
-
 ## 条件编译
 
 Conditional compilation is often used to create one program that can be compiled to run on different computer systems.
@@ -134,3 +133,18 @@ The `#if` and `#elif` preprocessor statements:
 #enfif
 ```
 
+`#if` 语句中还可以使用特殊运算符 `defined (name)`
+
+```c
+#if defined(WINDOWS) || defined(WINDOWSNT)
+#    define BOOT_DRIVE "C:/"
+#else
+#    define BOOT_DRIVE "D:/"
+#endif
+```
+
+使用 `#undef` 语句可以移除一个特定 name 的定义：
+
+```c
+#undef name
+```
