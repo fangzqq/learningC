@@ -62,3 +62,75 @@
 利用 `#include` 语句将头文件或包含文件中的宏和函数都包含到程序中。头文件通常以字符 `.h` 结尾。
 
 头文件中的所有语句都被看作是直接键入到程序中的相应位置。
+
+
+The _double quotation_ marks around the include filename instruct the preprocessor to look for the specified file in one or more file directories (typically first in the same directory that contains the source file, but the actual places the preprocessor searches are system dependent).
+
+Enclosing the filename within the characters `<` and `>`, causes the preprocessor to look for the include file in the special _system include file directory or directories_.
+
+On Unix systems (including Mac OS X systems), the system include file directory is `/usr/include`
+
+Using include files to centralize commonly used:
+
+- preprocessor definitions, 
+- structure definitions, 
+- prototype declarations, 
+- global variable declarations 
+
+is considered good programming technique.
+
+Include files can be nested. That is, an include file can itself include another file, and so on.
+
+
+## 条件编译
+
+Conditional compilation is often used to create one program that can be compiled to run on different computer systems.
+
+It is also often used to switch on or off various statements in the program.
+
+```c
+#ifdef UNIX
+#    define DATADIR "/uxn1/data"
+#else
+#    define DATADIR "\usr\data"
+#endif
+```
+
+To define the symbol UNIX to the preprocessor, the statement suffices:
+
+```c
+#define UNIX 1
+
+// or even just
+#define UNIX
+```
+
+The gcc command line:
+
+```shell
+gcc -D UNIX program.c
+gcc -D GNUDIR=/c/gnustep program.c
+```
+
+defines the name UNIX to the preprocessor, causing all `#ifdef` UNIX statements inside program.c to evaluate as TRUE (note that the `-D UNIX` must be typed before the program name on the command line)
+
+This technique enables names to be defined without having to edit the source program.
+
+The `#ifndef` statement is often used to avoid multiple inclusion of a file in a program:
+
+```c
+#ifndef _MYSTDIO_H
+#define _MYSTDIO_H
+#endif /* _MYSTDIO_H */
+```
+
+The `#if` and `#elif` preprocessor statements:
+
+```c
+#if    OS == 1  /* Mac OS */
+#elif  OS == 2  /* Windows */
+#elif  OS == 3  /* Linux */
+#else
+#enfif
+```
+
