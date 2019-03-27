@@ -14,11 +14,6 @@ enum primaryColor { red, yellow, blue};
 
 c 编译器实际上将枚举标识符看作整型常数，从列表中的第一个名字开始，编译器依次为这些名字分配起始值为 0 的连续整数值。
 
-```c
-enum direction {up, down, left = 10, right};
-// up: 0, down: 1, left: 10, right: 11
-```
-
 Enumeration identifiers can share the same value:
 
 ```c
@@ -31,3 +26,38 @@ thisMonth = (enum month) (monthValue - 1);
 
 When writing programs with enumerated data types, try not to rely on the fact that the enumerated values are treated as integers. Instead, try to _treat them as distinct data types_.
 
+定义枚举类型时的变化：
+
+```c
+enum {east, west, south, north} direction;
+```
+
+就作用域而言，枚举类型定义的行为特性类似于结构体与变量定义。
+在定义一种枚举类型时，必须确保它的枚举标识符与同一作用域内定义的其他变量名，枚举标识符互不相同。
+
+## typedef 语句
+
+使用 `typedef` 语句可以为数据类型指定替代名字：
+
+```c
+typedef int Counter
+```
+
+`typedef` 语句与 `#define` 语句的比较：
+
+- `typedef` 是由 C 编译器进行正确处理的，而 `#define` 是由预处理器处理的
+- 在为派生数据类型指定名字时，`typedef` 语句的灵活性要高于 `#define`
+
+使用 `typedef` 定义一个新的类型名：
+
+1. 像声明所需类型的变量一样编写语句
+2. 在通常应当出现要声明的变量名的位置，代入新的类型名
+3. 在整个语句之前，放入关键字 `typedef`
+
+`typedef` 语句并不是真的定义一种新类型，它只是定义一种新的类型名。
+
+## 数据类型转换
+
+使用类型转换运算符来明确要求进行转换，类型转换运算符的优先级高于除法运算符。
+
+符号扩展与函数参数转换。
