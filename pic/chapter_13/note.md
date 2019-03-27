@@ -19,3 +19,15 @@ enum direction {up, down, left = 10, right};
 // up: 0, down: 1, left: 10, right: 11
 ```
 
+Enumeration identifiers can share the same value:
+
+```c
+enum switch {no = 0, off = 0, yes = 1, on = 1};
+```
+
+```c
+thisMonth = (enum month) (monthValue - 1);
+```
+
+When writing programs with enumerated data types, try not to rely on the fact that the enumerated values are treated as integers. Instead, try to _treat them as distinct data types_.
+
