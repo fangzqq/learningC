@@ -14,10 +14,17 @@ enum primaryColor { red, yellow, blue};
 
 c 编译器实际上将枚举标识符看作整型常数，从列表中的第一个名字开始，编译器依次为这些名字分配起始值为 0 的连续整数值。
 
+Enumeration identifiers can share the same value:
+
 ```c
-enum direction {up, down, left = 10, right};
-// up: 0, down: 1, left: 10, right: 11
+enum switch {no = 0, off = 0, yes = 1, on = 1};
 ```
+
+```c
+thisMonth = (enum month) (monthValue - 1);
+```
+
+When writing programs with enumerated data types, try not to rely on the fact that the enumerated values are treated as integers. Instead, try to _treat them as distinct data types_.
 
 定义枚举类型时的变化：
 
