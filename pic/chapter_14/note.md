@@ -62,3 +62,9 @@ static double squareRoot(double x)
 ```
 
 ### Using Header Files Effectively
+
+包含文件提供了一种标准化的方法：每个程序员都使用相同的定义，它们的取值相同。
+
+## 其他处理大型程序的实用工具
+
+make 实用工具与 Makefile 文件
