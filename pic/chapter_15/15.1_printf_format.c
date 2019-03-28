@@ -9,7 +9,7 @@ int main(void)
     short int j = 17;
     unsigned int u = 0xf179U;
     long int l = 75000L;
-    long long int L = 0x12345678LL;
+    long long int L = 0x1234567812345678LL;
     float f = 12.978F;
     double d = -97.4583;
     char *cp = &c;
@@ -49,6 +49,8 @@ int main(void)
     printf("\nPointers:\n");
     printf("%p %p\n\n", ip, cp);
 
-    printf("This %n is func. %n\n", &c1, &c2);
-    printf("c1=");
+    printf("This%n is fun.%n\n", &c1, &c2);
+    printf("c1=%i, c2=%i\n", c1, c2);
+
+    return 0;
 }
