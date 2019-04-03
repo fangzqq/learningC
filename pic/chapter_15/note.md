@@ -23,12 +23,10 @@ i`，将 i 的值显示为最少七位。
 
 ### scanf
 
-<<<<<<< HEAD
 As with `printf()`, `scanf()` takes optional modifiers between the % and the conversion character.
 
 When the `scanf()` function searches the input stream for a value to be read, it always bypasses any leading so-called whitespace characters, where whitespace refers to either a blank space, horizontal tab ('\t'), vertical tab ('\v'), carriage return ('\r'), newline ('\n'), or form-feed character ('\f').
 
-=======
 可以通过检测 scanf 函数返回的数值来判断输入中是否存在错误：
 
 ```c
@@ -139,4 +137,3 @@ if ( remove("tempfile"))
     exit(EXIT_FAILURE);
 }
 ```
->>>>>>> ad4c48e5c0e6d88dc868afb02b9591dc7e298abf
