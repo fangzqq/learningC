@@ -20,3 +20,8 @@ C 语言中的所有 I/O 操作都是通过函数调用完成的。
 任何整数格式规格都可用来显示字符。
 
 ### scanf
+
+As with `printf()`, `scanf()` takes optional modifiers between the % and the conversion character.
+
+When the `scanf()` function searches the input stream for a value to be read, it always bypasses any leading so-called whitespace characters, where whitespace refers to either a blank space, horizontal tab ('\t'), vertical tab ('\v'), carriage return ('\r'), newline ('\n'), or form-feed character ('\f').
+
